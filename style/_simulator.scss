@@ -1,0 +1,106 @@
+.simulator-container{
+    height: 85vh;
+    background-color: rgb(255, 255, 255);
+}
+
+.arrays-container{
+    height: 55vh;
+    background-color: chocolate;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+
+    .array-title{
+        font-size: 2.2rem;
+        font-family: 'Roboto', sans-serif;
+    }
+
+    .input-container, .output-container{
+        height: 25rem;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+    }
+    
+    .input-array{
+        height: 20rem;
+        width: 35rem;
+        background-color: aliceblue;
+        border-radius: 1.5rem;
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        position: relative;
+    }
+    .output-array{
+        height: 20rem;
+        width: 35rem;
+        background-color: aliceblue;
+        border-radius: 1.5rem;
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+    }
+
+    .item{
+        height: 6.5rem;
+        width: 6.5rem;
+        background-color: rgb(44, 181, 181);
+        box-shadow: 0 20px 30px rgba(0,0,0,.1), 0 4px 4px 0 rgba(0,0,0,.1);
+        // display: none;
+    }
+    .ghost-item{
+        height: 6.5rem;
+        width: 6.5rem;
+        opacity: .5;
+        background-color: rgb(44, 181, 181);
+        box-shadow: 0 20px 30px rgba(0,0,0,.1), 0 4px 4px 0 rgba(0,0,0,.1);
+        // display: none;
+    }
+    .temp-container{
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        // background-color: aqua;
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+    }
+    .box-1{
+        background-color: rgb(151, 44, 181);
+    }
+    .box-2{
+        background-color: rgb(44, 181, 181);
+    }
+    .box-3{
+        background-color: rgb(181, 103, 44);
+    }
+    .box-4{
+        background-color: rgb(44, 99, 181);
+    }
+
+}
+
+.user-selection{
+    height: 30vh;
+    background-color: darkgreen;
+
+    .user-container{
+        height: 15vh;
+        background-color: aliceblue;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .user-controls{
+        height: 100%;
+        width: 30rem;
+        background-color: cadetblue;
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        flex-direction: column;
+    }
+}
