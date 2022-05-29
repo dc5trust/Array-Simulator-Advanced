@@ -79,6 +79,9 @@
     .box-4{
         background-color: rgb(44, 99, 181);
     }
+    .circle{
+        border-radius: 50%;
+    }
 
 }
 
@@ -107,4 +110,9 @@
     .button-container{
         
     }
+}
+
+.fa-solid{
+    font-size: 1.8rem;
+    cursor: pointer;
 }
