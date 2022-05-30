@@ -1,5 +1,5 @@
 // buttons 
-const runBtn = document.querySelector('.run-btn');
+const runBtn = document.querySelector('#run-btn');
 const resetBtn = document.querySelector('.reset-btn');
 const rightArrowBtn = document.querySelector('.fa-chevron-right');
 const leftArrowBtn = document.querySelector('.fa-chevron-left');
@@ -20,39 +20,51 @@ const boxesArray = Array.from(boxes);
 //Event Listeners
 // runBtn.addEventListener('click', moveElements);
 resetBtn.addEventListener('click', reset);
-rightArrowBtn.addEventListener('click', switchMethods);
 
+//left arrow needed running the same switchMethods
+rightArrowBtn.addEventListener('click', switchMethods);
 buttonContainer.addEventListener('click', execute);
 
 //global variables 
 let hasSimulatorRan = false;
 let isSimulatorRunning = false;
-let counter = 0;
+let ArrayCounter_MethodsArray = 0;
 
 console.log(mapActive.length); // return 1 means active, return 0 means inactive
-const methodsArray = [{type: 'filter(square)', buttonClass: 'filter-active'}, {type: '2(circle)', buttonClass: 'filterss-active'} ];
+const methodsArray = [{type: 'map(square => square)', buttonClass: 'map-active'}, {type: 'filter(square)', buttonClass: 'filter-active'} ];
 const filterArray = [{className: 'item box-1'}, {className: 'item box-2'}, {className: 'item box-3 circle'}, {className: 'item box-4'}];
 
+//load the first data from MethodsArray & increase ArrayCounter_MethodsArray by one 
+window.addEventListener('load', (event) => {
+    typeMethod.innerText = methodsArray[ArrayCounter_MethodsArray].type;
+    runBtn.classList.add(`${methodsArray[ArrayCounter_MethodsArray].buttonClass}`);
+    console.log(methodsArray[ArrayCounter_MethodsArray].buttonClass)
+    // console.log()
+    ArrayCounter_MethodsArray++;
+  });
 
 function execute(e){
     let buttonClassName = e.target.classList.value;
-    console.log(e.target.classList.value);
+    console.log(buttonClassName);
+
+    //change this to a switch statement 
     if(buttonClassName === 'map-active'){
         executeMap();
         console.log('it freaking worked');
         return
     }else if(buttonClassName === 'filter-active'){
-
+        executeFilter();
+        return
     }
     
 }
 
 
 function switchMethods(){
-    typeMethod.innerText = methodsArray[counter].type;
-    runBtn.classList.remove('run-btn');
-    runBtn.classList.add(`${methodsArray[counter].buttonClass}`)
-    counter++;
+    typeMethod.innerText = methodsArray[ArrayCounter_MethodsArray].type;
+    runBtn.classList.remove('map-active');
+    runBtn.classList.add(`${methodsArray[ArrayCounter_MethodsArray].buttonClass}`)
+    
 
     //delete everything that there, 
     const boxes =  document.querySelectorAll('.item');
@@ -63,20 +75,39 @@ function switchMethods(){
         box.remove();
     });
 
-    setupFilter();
+    switch (ArrayCounter_MethodsArray){
+        case 0:
+            setupMap();
+            break;
+        case 1:
+            setupFilter();
+            break;
+        case 2:
+            setupFindIndex();
+            break;
+        default:
+            
+    }
+    ArrayCounter_MethodsArray++;
     //create the proper items needed based on 'active' that is selected
     //switch run btn & reset button 
 }   
 
+function setupFindIndex(){
+
+}
 
 function setupFilter(){
-    
     //create what I need to replace it. 
     for(let i = 0; i < filterArray.length; i++){
         const newElement = document.createElement('div');
         newElement.setAttribute('class', `${filterArray[i].className}`);
         inputArray.append(newElement);
     }
+
+}
+
+function setupMap(){
 
 }
 
@@ -104,7 +135,26 @@ function executeMap(){
 }
 
 function executeFilter(){
-    
+    const boxes = document.querySelectorAll('.item');
+    const boxesArray = Array.from(boxes);
+    if(hasSimulatorRan === false && isSimulatorRunning === false){
+        hasSimulatorRan = true;
+        isSimulatorRunning = true;
+    boxesArray.forEach((box, index, array)=>{
+        setTimeout(()=>{
+            const newGhostElement = document.createElement('div');
+            newGhostElement.setAttribute('class', 'item ghost-item circle');
+            inputArray.append(newGhostElement);
+            gsap.from(box,{x:-500, duration: 1});
+            outputArray.append(box);
+            box.style.borderRadius = '50%';
+            if(index === array.length-1){
+                isSimulatorRunning = false;
+            }
+        }, 1000 * index)
+        
+    });
+    }
 }
 
 function reset(){
