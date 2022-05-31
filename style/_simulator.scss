@@ -1,5 +1,5 @@
 .simulator-container{
-    height: 85vh;
+    height: 90vh;
     background-color: rgb(255, 255, 255);
 }
 
@@ -86,7 +86,7 @@
 }
 
 .user-selection{
-    height: 30vh;
+    height: 35vh;
     background-color: darkgreen;
 
     .user-container{
@@ -115,4 +115,23 @@
 .fa-solid{
     font-size: 1.8rem;
     cursor: pointer;
+}
+
+.test{
+    display:flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.type{
+    font-size: 4rem;
+    text-align: center;
+    color: white;
+}
+.small-item{
+    display: inline-block;
+    height: 4rem;
+    width: 4rem;
+    background-color: rgb(62, 64, 120);
+    box-shadow: 0 20px 30px rgba(0,0,0,.1), 0 4px 4px 0 rgba(0,0,0,.1);
 }

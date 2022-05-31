@@ -27,16 +27,16 @@ let isSimulatorRunning = false;
 let ArrayCounter = 0;
 
 // console.log(mapActive.length); // return 1 means active, return 0 means inactive
-const methodsArray = [{type: 'map(square => square)', buttonClass: 'map-active'}, {type: 'filter(square)', buttonClass: 'filter-active'} ];
+const methodsArray = [{type: 'map(square => square)', buttonClass: 'map-active'}, {type: `.filter( <span class="small-item"></span> )`, buttonClass: 'filter-active'} ];
 const filterArray = [{className: 'item box-1'}, {className: 'item box-2'}, {className: 'item box-3 circle'}, {className: 'item box-4'}];
 
 //load the first data from MethodsArray & increase ArrayCounter by one 
-window.addEventListener('load', (event) => {
-    typeMethod.innerText = methodsArray[ArrayCounter].type;
-    runBtn.classList.add(`${methodsArray[ArrayCounter].buttonClass}`);
-    // console.log(methodsArray[ArrayCounter].buttonClass)
-    // ArrayCounter++;
-  });
+// window.addEventListener('load', (event) => {
+//     typeMethod.innerText = methodsArray[ArrayCounter].type;
+//     runBtn.classList.add(`${methodsArray[ArrayCounter].buttonClass}`);
+//     // console.log(methodsArray[ArrayCounter].buttonClass)
+//     // ArrayCounter++;
+//   });
 
 function execute(e){
     //run button executes function depending on what class it holds
@@ -46,11 +46,9 @@ function execute(e){
     //change this to a switch statement 
     switch(buttonClassName){
         case 'map-active':
-
             executeMap();
             break;
         case 'filter-active':
-            console.log('hello')
             executeFilter();
             break;
         case 'reset-btn':
@@ -62,6 +60,7 @@ function execute(e){
 
 function moveLeft(){
     if(ArrayCounter === 0) return
+    if(isSimulatorRunning === true) return
     //remove previous class
     runBtn.classList.remove(methodsArray[ArrayCounter].buttonClass);
     ArrayCounter--;
@@ -69,6 +68,7 @@ function moveLeft(){
 }
 function moveRight(){
     if(methodsArray.length-1 === ArrayCounter) return
+    if(isSimulatorRunning === true) return 
     //remove previous class
     runBtn.classList.remove(methodsArray[ArrayCounter].buttonClass);
     ArrayCounter++;
@@ -78,9 +78,7 @@ function moveRight(){
 function switchMethods(){
     //need to fix this here! need to prevent early animation cancels
     hasSimulatorRan = false;
-    isSimulatorRunning = false;
-    // ArrayCounter++;
-    typeMethod.innerText = methodsArray[ArrayCounter].type;
+    typeMethod.innerHTML = methodsArray[ArrayCounter].type;
     runBtn.classList.add(methodsArray[ArrayCounter].buttonClass)
     
 
@@ -92,10 +90,6 @@ function switchMethods(){
         //remove everything 
         box.remove();
     });
-    
-    //here's the issue, one of these is not switching properly.
-    console.log(hasSimulatorRan);
-    console.log(isSimulatorRunning); 
 
     switch (ArrayCounter){
         case 0:
@@ -128,13 +122,6 @@ function reset(){
         boxesArray.forEach((box, index, array)=>{
             box.remove();
         })
-        //readd items into input array
-        // for(let numOfItems = 0; numOfItems < 4; numOfItems++){
-        //     const originalElements = document.createElement('div');
-        //     originalElements.setAttribute('class', `item box-${numOfItems+1}`);
-        //     inputArray.append(originalElements);
-        // }
-        console.log(ArrayCounter)
         switch (ArrayCounter){
             case 0:
                 setupMap();
@@ -223,6 +210,7 @@ function executeFilter(){
             const newGhostElement = document.createElement('div');
             if(index === 2){
                 newGhostElement.setAttribute('class', 'item ghost-item circle');
+                // gsap.from(box,{x:-500, duration: 1});
                 box.remove();
                 inputArray.append(newGhostElement);
             }else{
