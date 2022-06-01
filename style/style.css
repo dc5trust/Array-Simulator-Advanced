@@ -9,11 +9,11 @@ body {
 }
 
 .main-container {
-  min-height: 100vh;
+  height: 100vh;
+  background-Color: rgb(159, 165, 185);
 }
 .main-container .title-container {
   height: 15vh;
-  background-color: beige;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -24,13 +24,11 @@ body {
 }
 
 .simulator-container {
-  height: 90vh;
-  background-color: rgb(255, 255, 255);
+  height: 85vh;
 }
 
 .arrays-container {
-  height: 55vh;
-  background-color: chocolate;
+  height: 50vh;
   display: flex;
   justify-content: space-around;
   align-items: center;
@@ -45,11 +43,14 @@ body {
   justify-content: center;
   align-items: center;
   flex-direction: column;
+  background-color: rgb(255, 255, 255);
+  box-shadow: 0 20px 20px rgba(0, 0, 0, 0.1), 0 4px 4px 0 rgba(0, 0, 0, 0.1);
+  border-radius: 20%;
+  border: 4px inset;
 }
 .arrays-container .input-array {
   height: 20rem;
   width: 35rem;
-  background-color: aliceblue;
   border-radius: 1.5rem;
   display: flex;
   justify-content: space-around;
@@ -59,7 +60,6 @@ body {
 .arrays-container .output-array {
   height: 20rem;
   width: 35rem;
-  background-color: aliceblue;
   border-radius: 1.5rem;
   display: flex;
   justify-content: space-around;
@@ -70,6 +70,7 @@ body {
   width: 6.5rem;
   background-color: rgb(44, 181, 181);
   box-shadow: 0 20px 30px rgba(0, 0, 0, 0.1), 0 4px 4px 0 rgba(0, 0, 0, 0.1);
+  border: 4px inset;
 }
 .arrays-container .ghost-item {
   height: 6.5rem;
@@ -104,26 +105,25 @@ body {
 
 .user-selection {
   height: 35vh;
-  background-color: darkgreen;
 }
 .user-selection .user-container {
   height: 15vh;
-  background-color: aliceblue;
+  background-color: rgb(255, 255, 255);
   display: flex;
-  justify-content: center;
+  justify-content: space-around;
   align-items: center;
+  border: 4px inset;
 }
 .user-selection .user-controls {
   height: 100%;
-  width: 30rem;
-  background-color: cadetblue;
+  width: 35rem;
   display: flex;
   justify-content: space-around;
   align-items: center;
   flex-direction: column;
 }
 .fa-solid {
-  font-size: 1.8rem;
+  font-size: 4rem;
   cursor: pointer;
 }
 
@@ -136,13 +136,24 @@ body {
 .type {
   font-size: 4rem;
   text-align: center;
-  color: white;
+  color: rgb(0, 0, 0);
 }
 
-.small-item {
+.small-item-square {
   display: inline-block;
   height: 4rem;
   width: 4rem;
-  background-color: rgb(62, 64, 120);
+  background-color: rgb(212, 214, 255);
   box-shadow: 0 20px 30px rgba(0, 0, 0, 0.1), 0 4px 4px 0 rgba(0, 0, 0, 0.1);
+  border: 2px inset;
+}
+
+.small-item-circle {
+  display: inline-block;
+  height: 4rem;
+  width: 4rem;
+  border-radius: 50%;
+  background-color: rgb(212, 214, 255);
+  box-shadow: 0 20px 30px rgba(0, 0, 0, 0.1), 0 4px 4px 0 rgba(0, 0, 0, 0.1);
+  border: 2px inset;
 }/*# sourceMappingURL=style.css.map */

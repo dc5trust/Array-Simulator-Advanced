@@ -1,11 +1,11 @@
 .simulator-container{
-    height: 90vh;
-    background-color: rgb(255, 255, 255);
+    height: 85vh;
+    // background-color: rgb(255, 255, 255);
 }
 
 .arrays-container{
-    height: 55vh;
-    background-color: chocolate;
+    height: 50vh;
+    // background-color: chocolate;
     display: flex;
     justify-content: space-around;
     align-items: center;
@@ -21,22 +21,25 @@
         justify-content: center;
         align-items: center;
         flex-direction: column;
+        background-color: rgb(255, 255, 255);
+        box-shadow: 0 20px 20px rgba(0,0,0,.1), 0 4px 4px 0 rgba(0,0,0,.1);
+        border-radius: 20%;
+        border: 4px inset;
     }
     
     .input-array{
         height: 20rem;
         width: 35rem;
-        background-color: aliceblue;
         border-radius: 1.5rem;
         display: flex;
         justify-content: space-around;
         align-items: center;
         position: relative;
     }
+
     .output-array{
         height: 20rem;
         width: 35rem;
-        background-color: aliceblue;
         border-radius: 1.5rem;
         display: flex;
         justify-content: space-around;
@@ -48,7 +51,7 @@
         width: 6.5rem;
         background-color: rgb(44, 181, 181);
         box-shadow: 0 20px 30px rgba(0,0,0,.1), 0 4px 4px 0 rgba(0,0,0,.1);
-        // display: none;
+        border: 4px inset;
     }
     .ghost-item{
         height: 6.5rem;
@@ -56,13 +59,11 @@
         opacity: .5;
         background-color: rgb(44, 181, 181);
         box-shadow: 0 20px 30px rgba(0,0,0,.1), 0 4px 4px 0 rgba(0,0,0,.1);
-        // display: none;
     }
     .temp-container{
         position: absolute;
         width: 100%;
         height: 100%;
-        // background-color: aqua;
         display: flex;
         justify-content: space-around;
         align-items: center;
@@ -87,24 +88,26 @@
 
 .user-selection{
     height: 35vh;
-    background-color: darkgreen;
+    // background-color: darkgreen;
 
     .user-container{
         height: 15vh;
-        background-color: aliceblue;
+        background-color: rgb(255, 255, 255);
         display: flex;
-        justify-content: center;
+        justify-content: space-around;
         align-items: center;
+        border: 4px inset;
     }
 
     .user-controls{
         height: 100%;
-        width: 30rem;
-        background-color: cadetblue;
+        width: 35rem;
+        // background-color: rgb(215, 215, 215);
         display: flex;
         justify-content: space-around;
         align-items: center;
         flex-direction: column;
+        // border: 4px outset;
     }
 
     .button-container{
@@ -113,7 +116,7 @@
 }
 
 .fa-solid{
-    font-size: 1.8rem;
+    font-size: 4rem;
     cursor: pointer;
 }
 
@@ -126,12 +129,23 @@
 .type{
     font-size: 4rem;
     text-align: center;
-    color: white;
+    color: rgb(0, 0, 0);
 }
-.small-item{
+.small-item-square{
     display: inline-block;
     height: 4rem;
     width: 4rem;
-    background-color: rgb(62, 64, 120);
+    background-color: rgb(212, 214, 255);
     box-shadow: 0 20px 30px rgba(0,0,0,.1), 0 4px 4px 0 rgba(0,0,0,.1);
+    border: 2px inset;
+}
+
+.small-item-circle{
+    display: inline-block;
+    height: 4rem;
+    width: 4rem;
+    border-radius: 50%;
+    background-color: rgb(212, 214, 255);
+    box-shadow: 0 20px 30px rgba(0,0,0,.1), 0 4px 4px 0 rgba(0,0,0,.1);
+    border: 2px inset;
 }

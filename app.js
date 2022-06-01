@@ -27,16 +27,16 @@ let isSimulatorRunning = false;
 let ArrayCounter = 0;
 
 // console.log(mapActive.length); // return 1 means active, return 0 means inactive
-const methodsArray = [{type: 'map(square => square)', buttonClass: 'map-active'}, {type: `.filter( <span class="small-item"></span> )`, buttonClass: 'filter-active'} ];
+const methodsArray = [{type: `.map( <span class="small-item-square"></span> => <span class="small-item-circle"></span> )`, buttonClass: 'map-active'}, {type: `.filter( <span class="small-item-square"></span> )`, buttonClass: 'filter-active'} ];
 const filterArray = [{className: 'item box-1'}, {className: 'item box-2'}, {className: 'item box-3 circle'}, {className: 'item box-4'}];
 
-//load the first data from MethodsArray & increase ArrayCounter by one 
-// window.addEventListener('load', (event) => {
-//     typeMethod.innerText = methodsArray[ArrayCounter].type;
-//     runBtn.classList.add(`${methodsArray[ArrayCounter].buttonClass}`);
-//     // console.log(methodsArray[ArrayCounter].buttonClass)
-//     // ArrayCounter++;
-//   });
+// load the first data from MethodsArray & increase ArrayCounter by one 
+window.addEventListener('load', (event) => {
+    typeMethod.innerHTML = methodsArray[ArrayCounter].type;
+    runBtn.classList.add(`${methodsArray[ArrayCounter].buttonClass}`);
+    // console.log(methodsArray[ArrayCounter].buttonClass)
+    // ArrayCounter++;
+  });
 
 function execute(e){
     //run button executes function depending on what class it holds
@@ -53,6 +53,8 @@ function execute(e){
             break;
         case 'reset-btn':
             reset();
+            break;
+        default:
             break;
     }
 
@@ -211,6 +213,7 @@ function executeFilter(){
             if(index === 2){
                 newGhostElement.setAttribute('class', 'item ghost-item circle');
                 // gsap.from(box,{x:-500, duration: 1});
+                gsap.to(newGhostElement, 10, {rotation:"360", ease:Linear.easeNone, repeat:-1});
                 box.remove();
                 inputArray.append(newGhostElement);
             }else{
@@ -228,3 +231,5 @@ function executeFilter(){
     }
 }
 
+// rotate indefinitely 
+ // gsap.to(box, 10, {rotation:"360", ease:Linear.easeNone, repeat:-1});
