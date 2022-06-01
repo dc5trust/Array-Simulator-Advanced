@@ -120,7 +120,7 @@ RESET
 */
 
 function reset(){
-    if(hasSimulatorRan === true && isSimulatorRunning === false){
+    if(isSimulatorRunning === false){
         const boxes = document.querySelectorAll('.item');
         const boxesArray = Array.from(boxes);
         boxesArray.forEach((box, index, array)=>{
