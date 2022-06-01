@@ -159,6 +159,7 @@ function setupFilter(){
     for(let i = 0; i < filterArray.length; i++){
         const newElement = document.createElement('div');
         newElement.setAttribute('class', `${filterArray[i].className}`);
+        newElement.innerText = `[${i}]`;
         inputArray.append(newElement);
     }
 
@@ -168,6 +169,7 @@ function setupMap(){
      for(let numOfItems = 0; numOfItems < 4; numOfItems++){
             const originalElements = document.createElement('div');
             originalElements.setAttribute('class', `item box-${numOfItems+1}`);
+            originalElements.innerText = `[${numOfItems}]`;
             inputArray.append(originalElements);
         }
 }
@@ -188,6 +190,7 @@ function executeMap(){
         setTimeout(()=>{
             const newGhostElement = document.createElement('div');
             newGhostElement.setAttribute('class', 'item ghost-item');
+            newGhostElement.innerText = `[${index}]`;
             inputArray.append(newGhostElement);
             gsap.from(box,{x:-500, duration: 1});
             outputArray.append(box);

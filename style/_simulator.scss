@@ -23,7 +23,7 @@
         flex-direction: column;
         background-color: rgb(255, 255, 255);
         box-shadow: 0 20px 20px rgba(0,0,0,.1), 0 4px 4px 0 rgba(0,0,0,.1);
-        border-radius: 20%;
+        border-radius: 5%;
         border: 4px inset;
     }
     
@@ -49,9 +49,13 @@
     .item{
         height: 6.5rem;
         width: 6.5rem;
-        background-color: rgb(44, 181, 181);
+        background-color: rgb(213, 211, 211);
         box-shadow: 0 20px 30px rgba(0,0,0,.1), 0 4px 4px 0 rgba(0,0,0,.1);
         border: 4px inset;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 2rem;
     }
     .ghost-item{
         height: 6.5rem;
@@ -59,6 +63,9 @@
         opacity: .5;
         background-color: rgb(44, 181, 181);
         box-shadow: 0 20px 30px rgba(0,0,0,.1), 0 4px 4px 0 rgba(0,0,0,.1);
+    }
+    .ghost-item.circle{
+        background-color: rgb(181, 44, 44);
     }
     .temp-container{
         position: absolute;
@@ -69,19 +76,20 @@
         align-items: center;
     }
     .box-1{
-        background-color: rgb(151, 44, 181);
+        // background-color: rgb(151, 44, 181);
     }
     .box-2{
-        background-color: rgb(44, 181, 181);
+        background-color: rgb(213, 211, 211);
     }
     .box-3{
-        background-color: rgb(181, 103, 44);
+        // background-color: rgb(181, 103, 44);
     }
     .box-4{
-        background-color: rgb(44, 99, 181);
+        // background-color: rgb(44, 99, 181);
     }
     .circle{
         border-radius: 50%;
+        
     }
 
 }
@@ -138,6 +146,7 @@
     background-color: rgb(212, 214, 255);
     box-shadow: 0 20px 30px rgba(0,0,0,.1), 0 4px 4px 0 rgba(0,0,0,.1);
     border: 2px inset;
+    
 }
 
 .small-item-circle{
