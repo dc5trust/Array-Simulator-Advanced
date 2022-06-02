@@ -30,6 +30,7 @@ let ArrayCounter = 0;
 const methodsArray = [{type: `.map( <span class="small-item-square"></span> => <span class="small-item-circle"></span> )`, buttonClass: 'map-active'}, {type: `.filter( <span class="small-item-square"></span> )`, buttonClass: 'filter-active'}, {type: `.find( <span class="small-item-square red"><p>[2]</p></span> )`, buttonClass: 'find-active'} ];
 const filterArray = [{className: 'item box-1'}, {className: 'item box-2'}, {className: 'item box-3 circle'}, {className: 'item box-4'}];
 const findArray = [{className: 'item box-1 circle'}, {className: 'item box-2 circle'}, {className: 'item box-3 red'}, {className: 'item box-4'}];
+
 // load the first data from MethodsArray & increase ArrayCounter by one 
 window.addEventListener('load', (event) => {
     typeMethod.innerHTML = methodsArray[ArrayCounter].type;
@@ -54,6 +55,8 @@ function execute(e){
         case 'reset-btn':
             reset();
             break;
+        case 'find-active':
+            executeFind();
         default:
             break;
     }
@@ -102,7 +105,6 @@ function switchMethods(){
             setupFilter();
             break;
         case 2:
-            console.log('hello');
             setupFind();
             break;
         default:
@@ -257,7 +259,47 @@ function executeFind(){
     const boxes = document.querySelectorAll('.item');
     const boxesArray = Array.from(boxes);
     if(isSimulatorRunning === false){
-        
+        isSimulatorRunning = true;
+        boxesArray.forEach((box, index, array)=>{
+            setTimeout(()=>{
+                if(index === 2){
+                    const newGhostElement = document.createElement('div');
+                    const newAnnouncement = document.createElement('h2');
+                    newAnnouncement.setAttribute('class', 'announcement');
+                    
+                    newGhostElement.setAttribute('class', 'item ghost-item');
+                    newGhostElement.innerText = `[${index}]`;
+                    outputArray.append(box);
+                    newAnnouncement.innerText = 'NEW ARRAY: NO';
+                    outputArray.append(newAnnouncement);
+                    gsap.from(box,{x: -500, duration: 1});
+                    setTimeout(()=>{
+                        inputArray.append(newGhostElement);
+                    }, 900)
+                    
+                }else if(index < 2){
+                    const newGhostElement = document.createElement('div');
+                    newGhostElement.setAttribute('class', 'item ghost-item');
+                    newGhostElement.innerText = `[${index}]`;
+                    gsap.to(box,{y:-500, duration: 1});
+                    setTimeout(()=>{
+                        inputArray.append(newGhostElement);
+                    }, 900)
+                    
+                    
+                    setTimeout(()=>{
+                        box.remove();
+                    }, 900);
+                    
+                }
+                
+                // box.style.borderRadius = '50%';
+                if(index === 2){
+                    isSimulatorRunning = false;
+                }
+            }, 1000 * index)
+            
+        });
     }
 }
 
