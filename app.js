@@ -34,6 +34,7 @@ const filterArray = [{className: 'item box-1'}, {className: 'item box-2'}, {clas
 const findArray = [{className: 'item box-1 circle'}, {className: 'item box-2 circle'}, {className: 'item box-3 red'}, {className: 'item box-4'}];
 const findIndexArray = [{className: 'item box-1 circle'}, {className: 'item box-2 circle'}, {className: 'item box-3 circle'}, {className: 'item box-4'}];
 const someArray = [{className: 'item box-1 circle'}, {className: 'item box-2'}, {className: 'item box-3'}, {className: 'item box-4 circle'}];
+const everyArray = [{className: 'item box-1'}, {className: 'item box-2'}, {className: 'item box-3 circle'}, {className: 'item box-4'}];
 
 // load the first data from MethodsArray & increase ArrayCounter by one 
 window.addEventListener('load', (event) => {
@@ -68,6 +69,8 @@ function execute(e){
         case 'some-active':
             executeSome();
             break;
+        case 'every-active':
+            executeEvery();
         default:
             break;
     }
@@ -112,7 +115,7 @@ function switchMethods(){
         //remove everything 
         box.remove();
     });
-    console.log(ArrayCounter);
+
     switch (ArrayCounter){
         case 0:
             setupMap();
@@ -128,6 +131,9 @@ function switchMethods(){
             break;
         case 4:
             setupSome();
+            break;
+        case 5: 
+            setupEvery();
             break;
         default:
            break; 
@@ -169,6 +175,8 @@ function reset(){
                 break;
             case 4:
                 setupSome();
+            case 5:
+                setupEvery();
             default:
                 break;
         }
@@ -244,6 +252,18 @@ function setupSome(){
         inputArray.append(newElement);
     }
 }
+
+function setupEvery(){
+    for(let i = 0; i < everyArray.length; i++){
+        const newElement = document.createElement('div');
+        newElement.setAttribute('class', `${everyArray[i].className}`);
+        gsap.to(newElement, 0.4, {scale:1.3, ease:Bounce.easeOut})
+        gsap.to(newElement, 0.2, {scale:1, delay:0.4})
+        newElement.innerText = `[${i}]`;
+        inputArray.append(newElement);
+    }
+}
+
 /* 
 
 Execute Functions 
@@ -414,7 +434,50 @@ function executeSome(){
     }
 }
 
+function executeEvery(){
+    const boxes = document.querySelectorAll('.item');
+    const boxesArray = Array.from(boxes);
 
+    if(isSimulatorRunning === false && hasSimulatorRan === false){
+        isSimulatorRunning = true;
+        hasSimulatorRan = true;
+        boxesArray.forEach((box, index, array)=>{
+            setTimeout(()=>{
+                if(index === 3){
+                    // box.classList.add('red');
+                    const outputResult = document.createElement('h2');
+                    outputResult.setAttribute('class', 'output-result');
+                    outputResult.innerText = `FALSE`;
+                    outputArray.append(outputResult);
+                }else if(index < 3){
+                    const newGhostElement = document.createElement('div');
+                    gsap.to(box,{y:-500, duration: 1});
+                    //locate the circle at index 2 and make it into a circle. The faded 'ghost' element
+                    if(index === 2){
+                        
+                        newGhostElement.setAttribute('class', 'item ghost-item circle');
+                        newGhostElement.innerText = `[${index}]`;
+                    }else{
+                        // const newGhostElement = document.createElement('div');
+                        newGhostElement.setAttribute('class', 'item ghost-item');
+                        newGhostElement.innerText = `[${index}]`;
+                    }
+                    setTimeout(()=>{
+                        inputArray.append(newGhostElement);
+                    }, 900)
+                    setTimeout(()=>{
+                        box.remove();
+                    }, 900);
+                    
+                }
+                if(index === 3){
+                    isSimulatorRunning = false;
+                }
+            }, 1000 * index)
+            
+        });
+    }
+}
 // rotate indefinitely 
  // gsap.to(box, 10, {rotation:"360", ease:Linear.easeNone, repeat:-1});
 
