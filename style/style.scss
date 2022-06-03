@@ -10,6 +10,7 @@
   .main-container{
     height: 100vh;
     background-Color: rgb(159, 165, 185);
+    background-Color: lightslategrey;
   
     .title-container{
       height: 15vh;
@@ -23,6 +24,19 @@
         font-family: 'Dancing Script', cursive;
       }
     }
+  }
+
+  button{
+    all: unset;
+    border: .1rem outset rgb(252, 252, 252);
+    background-color: rgb(243, 241, 241);
+    border-radius: 1rem;
+    padding: 1rem 1.7rem;
+    cursor: pointer;
+    box-shadow: 0 3px 3px rgba(0,0,0,.1), 0 4px 4px 0 rgba(0,0,0,.1);
+    font-size: 1rem;
+    font-family: 'Roboto', sans-serif;
+    color: black !important;
   }
   
   @import 'simulator';

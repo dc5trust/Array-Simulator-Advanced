@@ -26,30 +26,30 @@ let hasSimulatorRan = false;
 let isSimulatorRunning = false;
 let ArrayCounter = 0;
 
-// console.log(mapActive.length); // return 1 means active, return 0 means inactive
-const methodsArray = [{type: `.map( <span class="small-item-square"></span> => <span class="small-item-circle"></span> )`, buttonClass: 'map-active'}, {type: `.filter( <span class="small-item-square"></span> )`, buttonClass: 'filter-active'}, {type: `.find( <span class="small-item-square red"><p>[2]</p></span> )`, buttonClass: 'find-active'}, {type: `.findIndex( <span class="small-item-square red"></span> )`, buttonClass: 'findIndex-active'}, {type: `.some( <span class="small-item-square"></span> )`, buttonClass: 'some-active'}, {type: `.every( <span class="small-item-square"></span> )`, buttonClass: 'every-active'} ];
+//Methods Array holds the classes and innertext for each method. When the user switches, it injects the information directly with classes via innerHTML
+const methodsArray = [{type: `.map( <span class="small-item-square"></span> => <span class="small-item-circle outline-marked"></span> )`, buttonClass: 'map-active'}, {type: `.filter( <span class="small-item-square outline-marked"></span> )`, buttonClass: 'filter-active'}, {type: `.find( <span class="small-item-square outline-marked"><p>[2]</p></span> )`, buttonClass: 'find-active'}, {type: `.findIndex( <span class="small-item-square outline-marked"></span> )`, buttonClass: 'findIndex-active'}, {type: `.some( <span class="small-item-square"></span> )`, buttonClass: 'some-active'}, {type: `.every( <span class="small-item-square"></span> )`, buttonClass: 'every-active'} ];
 
 //Each array holds the circles/squares for their respective INPUTS. This holds the class names for the shapes
-const filterArray = [{className: 'item box-1'}, {className: 'item box-2'}, {className: 'item box-3 circle'}, {className: 'item box-4'}];
-const findArray = [{className: 'item box-1 circle'}, {className: 'item box-2 circle'}, {className: 'item box-3 red'}, {className: 'item box-4'}];
-const findIndexArray = [{className: 'item box-1 circle'}, {className: 'item box-2 circle'}, {className: 'item box-3 circle'}, {className: 'item box-4'}];
+const mapArray = [{className: 'item box-1'}, {className: 'item box-2'}, {className: 'item box-3'}, {className: 'item box-4'}];
+const filterArray = [{className: 'item box-1 outline-marked'}, {className: 'item box-2 outline-marked'}, {className: 'item box-3 circle'}, {className: 'item box-4 outline-marked'}];
+const findArray = [{className: 'item box-1 circle'}, {className: 'item box-2 circle'}, {className: 'item box-3 outline-marked'}, {className: 'item box-4'}];
+const findIndexArray = [{className: 'item box-1 circle'}, {className: 'item box-2 circle'}, {className: 'item box-3 circle'}, {className: 'item box-4 outline-marked'}];
 const someArray = [{className: 'item box-1 circle'}, {className: 'item box-2'}, {className: 'item box-3'}, {className: 'item box-4 circle'}];
 const everyArray = [{className: 'item box-1'}, {className: 'item box-2'}, {className: 'item box-3 circle'}, {className: 'item box-4'}];
+
 
 // load the first data from MethodsArray & increase ArrayCounter by one 
 window.addEventListener('load', (event) => {
     typeMethod.innerHTML = methodsArray[ArrayCounter].type;
     runBtn.classList.add(`${methodsArray[ArrayCounter].buttonClass}`);
-    // console.log(methodsArray[ArrayCounter].buttonClass)
-    // ArrayCounter++;
+    setupMap();
   });
 
 function execute(e){
     //run button executes function depending on what class it holds
     let buttonClassName = e.target.classList.value;
-    console.log(buttonClassName);
 
-    //change this to a switch statement 
+    //depending on the button class name will determine the function that will be executed
     switch(buttonClassName){
         case 'map-active':
             executeMap();
@@ -85,8 +85,8 @@ function moveLeft(){
     ArrayCounter--;
     switchMethods();
 }
-function moveRight(){
 
+function moveRight(){
     if(methodsArray.length-1 === ArrayCounter) return
     if(isSimulatorRunning === true) return 
     //remove previous class
@@ -100,16 +100,17 @@ function switchMethods(){
     hasSimulatorRan = false;
     typeMethod.innerHTML = methodsArray[ArrayCounter].type;
     runBtn.classList.add(methodsArray[ArrayCounter].buttonClass)
-    
 
     //delete everything that there, 
     const boxes =  document.querySelectorAll('.item');
     const boxesArray = Array.from(boxes);
+
     const outputResult = document.querySelector('.output-result');
-        
-    if(outputResult !== null){
-        outputResult.remove();
-    }
+    const newArrayCreatedMessage = document.querySelector('.announcement');
+    
+    //this deletes messages within the output array if they exist only 
+    if(outputResult !== null) outputResult.remove();
+    if(newArrayCreatedMessage !== null) newArrayCreatedMessage.remove();
 
     boxesArray.forEach((box)=>{
         //remove everything 
@@ -138,10 +139,7 @@ function switchMethods(){
         default:
            break; 
     }
-    //create the proper items needed based on 'active' that is selected
-    //switch run btn & reset button 
 }   
-
 
 /* 
 
@@ -153,10 +151,14 @@ function reset(){
     if(isSimulatorRunning === false){
         const boxes = document.querySelectorAll('.item');
         const boxesArray = Array.from(boxes);
+        
         const outputResult = document.querySelector('.output-result');
-        if(outputResult !== null){
-            outputResult.remove();
-        }
+        const newArrayCreatedMessage = document.querySelector('.announcement');
+
+        //this deletes messages within the output array if they exist only 
+        if(outputResult !== null) outputResult.remove();
+        if(newArrayCreatedMessage !== null) newArrayCreatedMessage.remove();
+        
         boxesArray.forEach((box, index, array)=>{
             box.remove();
         })
@@ -175,24 +177,34 @@ function reset(){
                 break;
             case 4:
                 setupSome();
+                break;
             case 5:
                 setupEvery();
+                break;
             default:
                 break;
         }
         console.log('hello');
         hasSimulatorRan = false;
     }
-    //if ghost items exist remove them, if they don't don't do anything 
-    // remove regular items if they are there, if not, don't do anything
 }
-
 
 /* 
 
 Setup up Functions 
 
 */
+
+function setupMap(){
+    for(let i = 0; i < mapArray.length; i++){
+        const newElement = document.createElement('div');
+        newElement.setAttribute('class', `${mapArray[i].className}`);
+        gsap.to(newElement, 0.4, {scale:1.3, ease:Bounce.easeOut})
+        gsap.to(newElement, 0.2, {scale:1, delay:0.4})
+        newElement.innerText = `[${i}]`;
+        inputArray.append(newElement);
+    }
+}
 
 function setupFilter(){
     //create what I need to replace it. 
@@ -206,17 +218,6 @@ function setupFilter(){
         inputArray.append(newElement);
     }
 
-}
-
-function setupMap(){
-    for(let numOfItems = 0; numOfItems < 4; numOfItems++){
-        const originalElements = document.createElement('div');
-        originalElements.setAttribute('class', `item box-${numOfItems+1}`);
-        gsap.to(originalElements, 0.4, {scale:1.3, ease:Bounce.easeOut})
-        gsap.to(originalElements, 0.2, {scale:1, delay:0.4})
-        originalElements.innerText = `[${numOfItems}]`;
-        inputArray.append(originalElements);
-    }
 }
 
 function setupFind(){
@@ -279,16 +280,26 @@ function executeMap(){
     boxesArray.forEach((box, index, array)=>{
         setTimeout(()=>{
             const newGhostElement = document.createElement('div');
+            const newArrayCreatedMessage = document.createElement('h2');
+            newArrayCreatedMessage.classList.add('announcement');
+            newArrayCreatedMessage.innerText = 'New Array Created';
             newGhostElement.setAttribute('class', 'item ghost-item');
             newGhostElement.innerText = `[${index}]`;
             inputArray.append(newGhostElement);
-            gsap.from(box,{x:-500, duration: 1});
+            box.classList.add('outline-marked');
+            gsap.from(box,{x:-500, duration: 1.5});
             outputArray.append(box);
             box.style.borderRadius = '50%';
+            //display announcement 'new array created during the first index element created
+            if(index === 0){
+                gsap.to(newArrayCreatedMessage, 0.4, {scale:1.5, ease:Bounce.easeOut})
+                gsap.to(newArrayCreatedMessage, 0.2, {scale:1, delay:0.7})
+                outputArray.append(newArrayCreatedMessage);
+            }
             if(index === array.length-1){
                 isSimulatorRunning = false;
             }
-        }, 1000 * index)
+        }, 1500 * index)
         
     });
     }
@@ -303,24 +314,30 @@ function executeFilter(){
     boxesArray.forEach((box, index, array)=>{
         setTimeout(()=>{
             const newGhostElement = document.createElement('div');
+            const newArrayCreatedMessage = document.createElement('h2');
+            newArrayCreatedMessage.classList.add('announcement');
+            newArrayCreatedMessage.innerText = 'New Array Created';
             if(index === 2){
-                newGhostElement.setAttribute('class', 'item ghost-item circle');
-                // gsap.from(box,{x:-500, duration: 1});
+                newGhostElement.setAttribute('class', 'item circle outline-marked-red');
                 newGhostElement.innerText = `[${index}]`
-                gsap.to(newGhostElement, 10, {rotation:"360", ease:Linear.easeNone, repeat:-1});
                 box.remove();
                 inputArray.append(newGhostElement);
             }else{
                 newGhostElement.setAttribute('class', 'item ghost-item');
                 newGhostElement.innerText = `[${index}]`
                 inputArray.append(newGhostElement);
-                gsap.from(box,{x:-500, duration: 1});
+                gsap.from(box,{x:-500, duration: 1.5});
                 outputArray.append(box);
+                if(index === 0){
+                    gsap.to(newArrayCreatedMessage, 0.4, {scale:1.5, ease:Bounce.easeOut})
+                    gsap.to(newArrayCreatedMessage, 0.2, {scale:1, delay:0.7})
+                    outputArray.append(newArrayCreatedMessage);
+                }
             }
             if(index === array.length-1){
                 isSimulatorRunning = false;
             }
-        }, 1000 * index);
+        }, 1500 * index);
         
     });
     }
@@ -329,7 +346,8 @@ function executeFilter(){
 function executeFind(){
     const boxes = document.querySelectorAll('.item');
     const boxesArray = Array.from(boxes);
-    if(isSimulatorRunning === false){
+    if(isSimulatorRunning === false && hasSimulatorRan === false){
+        hasSimulatorRan = true;
         isSimulatorRunning = true;
         boxesArray.forEach((box, index, array)=>{
             setTimeout(()=>{
@@ -337,17 +355,18 @@ function executeFind(){
                     const newGhostElement = document.createElement('div');
                     newGhostElement.setAttribute('class', 'item ghost-item');
                     newGhostElement.innerText = `[${index}]`;
+                    // box.classList.add('marked');
                     outputArray.append(box);
-                    gsap.from(box,{x: -500, duration: 1});
+                    gsap.from(box,{x: -500, duration: 1.5});
                     setTimeout(()=>{
                         inputArray.append(newGhostElement);
                     }, 900)
                     
                 }else if(index < 2){
                     const newGhostElement = document.createElement('div');
-                    newGhostElement.setAttribute('class', 'item ghost-item');
+                    newGhostElement.setAttribute('class', 'item ghost-item circle');
                     newGhostElement.innerText = `[${index}]`;
-                    gsap.to(box,{y:-500, duration: 1});
+                    gsap.to(box,{y:-500, duration: 1.5});
                     setTimeout(()=>{
                         inputArray.append(newGhostElement);
                     }, 900)
@@ -359,7 +378,7 @@ function executeFind(){
                 if(index === 2){
                     isSimulatorRunning = false;
                 }
-            }, 1000 * index)
+            }, 1500 * index)
             
         });
     }
@@ -373,26 +392,25 @@ function executeFindIndex(){
         isSimulatorRunning = true;
         boxesArray.forEach((box, index, array)=>{
             setTimeout(()=>{
-                const newGhostElement = document.createElement('div');
-                newGhostElement.setAttribute('class', 'item ghost-item');
+                if(index < 3){
+                    const newGhostElement = document.createElement('div');
+                newGhostElement.setAttribute('class', 'item ghost-item circle');
                 newGhostElement.innerText = `[${index}]`;
-                gsap.to(box,{y:-500, duration: 1});
+                gsap.to(box,{y:-500, duration: 1.5});
                 setTimeout(()=>{
                     inputArray.append(newGhostElement);
                 }, 900)
                 setTimeout(()=>{
                     box.remove();
-                }, 900); 
-                if(index === 3){
+                }, 900);
+                }else if(index === 3){
                     const resultElement = document.createElement('h2');
                     resultElement.setAttribute('class', 'output-result');
                     resultElement.innerText = `Index: 3`;
-                    setTimeout(()=>{
-                        outputArray.append(resultElement);
-                    }, 900)
+                    outputArray.append(resultElement);
                     isSimulatorRunning = false;
                 }
-            }, 1000 * index)
+            }, 1500 * index)
             
         });
     }
@@ -402,21 +420,22 @@ function executeSome(){
     const boxes = document.querySelectorAll('.item');
     const boxesArray = Array.from(boxes);
 
-    if(isSimulatorRunning === false){
+    if(isSimulatorRunning === false && hasSimulatorRan === false){
         isSimulatorRunning = true;
+        hasSimulatorRan = true;
         boxesArray.forEach((box, index, array)=>{
             setTimeout(()=>{
                 if(index === 1){
-                    box.classList.add('red');
+                    box.classList.add('outline-marked');
                     const outputResult = document.createElement('h2');
                     outputResult.setAttribute('class', 'output-result');
                     outputResult.innerText = `TRUE`;
                     outputArray.append(outputResult);
                 }else if(index < 1){
                     const newGhostElement = document.createElement('div');
-                    newGhostElement.setAttribute('class', 'item ghost-item');
+                    newGhostElement.setAttribute('class', 'item ghost-item circle');
                     newGhostElement.innerText = `[${index}]`;
-                    gsap.to(box,{y:-500, duration: 1});
+                    gsap.to(box,{y:-500, duration: 1.5});
                     setTimeout(()=>{
                         inputArray.append(newGhostElement);
                     }, 900)
@@ -428,7 +447,7 @@ function executeSome(){
                 if(index === 1){
                     isSimulatorRunning = false;
                 }
-            }, 1000 * index)
+            }, 1500 * index)
             
         });
     }
@@ -443,22 +462,20 @@ function executeEvery(){
         hasSimulatorRan = true;
         boxesArray.forEach((box, index, array)=>{
             setTimeout(()=>{
-                if(index === 3){
-                    // box.classList.add('red');
+                if(index === 2){
+                    box.classList.add('outline-marked-red');
                     const outputResult = document.createElement('h2');
                     outputResult.setAttribute('class', 'output-result');
                     outputResult.innerText = `FALSE`;
                     outputArray.append(outputResult);
-                }else if(index < 3){
+                }else if(index < 2){
                     const newGhostElement = document.createElement('div');
-                    gsap.to(box,{y:-500, duration: 1});
+                    gsap.to(box,{y:-500, duration: 1.5});
                     //locate the circle at index 2 and make it into a circle. The faded 'ghost' element
                     if(index === 2){
-                        
                         newGhostElement.setAttribute('class', 'item ghost-item circle');
                         newGhostElement.innerText = `[${index}]`;
                     }else{
-                        // const newGhostElement = document.createElement('div');
                         newGhostElement.setAttribute('class', 'item ghost-item');
                         newGhostElement.innerText = `[${index}]`;
                     }
@@ -468,20 +485,12 @@ function executeEvery(){
                     setTimeout(()=>{
                         box.remove();
                     }, 900);
-                    
                 }
                 if(index === 3){
                     isSimulatorRunning = false;
                 }
-            }, 1000 * index)
+            }, 1500 * index)
             
         });
     }
 }
-// rotate indefinitely 
- // gsap.to(box, 10, {rotation:"360", ease:Linear.easeNone, repeat:-1});
-
-//const newAnnouncement = document.createElement('h2');
-//  newAnnouncement.setAttribute('class', 'announcement');
-// newAnnouncement.innerText = 'NEW ARRAY: NO';
-// outputArray.append(newAnnouncement);
