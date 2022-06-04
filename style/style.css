@@ -384,7 +384,7 @@ button {
 }
 @media only screen and (max-width: 440px) {
   .main-container .title-container {
-    height: 12vh;
+    height: 15vh;
   }
   .main-container .title-container .title {
     font-size: 2.3rem;
