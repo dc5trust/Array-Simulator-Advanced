@@ -320,8 +320,8 @@ function executeMap(){
 function executeFilter(){
     const boxes = document.querySelectorAll('.item');
     const boxesArray = Array.from(boxes);
-    if(isSimulatorRunning === false){
-        // hasSimulatorRan = true;
+    if(isSimulatorRunning === false && hasSimulatorRan === false){
+        hasSimulatorRan = true;
         isSimulatorRunning = true;
     boxesArray.forEach((box, index, array)=>{
         setTimeout(()=>{
