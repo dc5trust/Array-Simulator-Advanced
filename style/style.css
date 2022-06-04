@@ -10,7 +10,6 @@ body {
 
 .main-container {
   height: 100vh;
-  background-Color: rgb(159, 165, 185);
   background-Color: lightslategrey;
 }
 .main-container .title-container {
@@ -29,7 +28,7 @@ button {
   border: 0.1rem outset rgb(252, 252, 252);
   background-color: rgb(243, 241, 241);
   border-radius: 1rem;
-  padding: 1rem 1.7rem;
+  padding: 0.8rem 1.5rem;
   cursor: pointer;
   box-shadow: 0 3px 3px rgba(0, 0, 0, 0.1), 0 4px 4px 0 rgba(0, 0, 0, 0.1);
   font-size: 1rem;
@@ -52,7 +51,7 @@ button {
   font-family: "Roboto", sans-serif;
 }
 .arrays-container .input-container, .arrays-container .output-container {
-  height: 25rem;
+  height: 22.5rem;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -115,7 +114,7 @@ button {
   height: 20vh;
 }
 .user-selection .user-container {
-  height: 10rem;
+  height: 8.5rem;
   background-color: rgb(255, 255, 255);
   display: flex;
   justify-content: space-around;
@@ -136,12 +135,12 @@ button {
 .fa-solid {
   font-size: 4rem;
   cursor: pointer;
+  pointer-events: auto;
 }
 
-.test {
-  display: flex;
-  justify-content: center;
-  align-items: center;
+.disabled-arrow {
+  pointer-events: none;
+  opacity: 0.5;
 }
 
 .type {
@@ -178,11 +177,6 @@ button {
   border: 3px inset;
 }
 
-.marked {
-  border: 2px inset rgb(188, 164, 164) !important;
-  background-color: rgb(96, 244, 255) !important;
-}
-
 .outline-marked {
   border: 4px inset rgb(96, 244, 255) !important;
 }
@@ -212,4 +206,107 @@ button {
   justify-content: space-around;
   align-items: center;
   height: 3.5rem;
+}
+
+@media only screen and (max-width: 1166px) {
+  .arrays-container .input-array {
+    width: 30rem;
+  }
+  .arrays-container .output-array {
+    width: 30rem;
+  }
+  .arrays-container .item {
+    height: 5.5rem;
+    width: 5.5rem;
+  }
+  .arrays-container .ghost-item {
+    height: 5.5rem;
+    width: 5.5rem;
+  }
+}
+@media only screen and (max-width: 1010px) {
+  .arrays-container .input-array {
+    width: 25rem;
+  }
+  .arrays-container .output-array {
+    width: 25rem;
+  }
+  .arrays-container .item {
+    height: 4.5rem;
+    width: 4.5rem;
+  }
+  .arrays-container .ghost-item {
+    height: 4.5rem;
+    width: 4.5rem;
+  }
+
+  .type {
+    font-size: 3rem;
+    text-align: center;
+    color: rgb(0, 0, 0);
+  }
+}
+@media only screen and (max-width: 845px) {
+  .main-container {
+    height: 100vh;
+  }
+  .main-container .title-container .title {
+    font-size: 4.5rem;
+  }
+
+  .arrays-container .input-container, .arrays-container .output-container {
+    height: 18.5rem;
+  }
+  .arrays-container .input-array {
+    width: 20rem;
+  }
+  .arrays-container .output-array {
+    height: 20rem;
+    width: 20rem;
+  }
+  .arrays-container .item {
+    height: 4rem;
+    width: 4rem;
+  }
+  .arrays-container .ghost-item {
+    height: 4rem;
+    width: 4rem;
+  }
+
+  .small-item-square {
+    height: 3rem;
+    width: 3rem;
+  }
+  .small-item-circle {
+    height: 3rem;
+    width: 3rem;
+  }
+
+  .type {
+    font-size: 3rem;
+    text-align: center;
+    color: rgb(0, 0, 0);
+  }
+
+  .announcement {
+    position: absolute;
+    bottom: 20px;
+    font-size: 1.2rem;
+    color: rgb(0, 0, 0);
+  }
+}
+@media only screen and (max-width: 685px) {
+  .arrays-container {
+    min-height: 60vh;
+    flex-wrap: wrap;
+  }
+  .arrays-container .input-container, .arrays-container .output-container {
+    height: 15rem;
+  }
+  .arrays-container .input-array {
+    width: 35rem;
+  }
+  .arrays-container .output-array {
+    width: 35rem;
+  }
 }/*# sourceMappingURL=style.css.map */

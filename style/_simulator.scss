@@ -15,7 +15,7 @@
     }
 
     .input-container, .output-container{
-        height: 25rem;
+        height: 22.5rem;
         display: flex;
         justify-content: center;
         align-items: center;
@@ -101,7 +101,7 @@
     // background-color: darkgreen;
 
     .user-container{
-        height: 10rem;
+        height: 8.5rem;
         background-color: rgb(255, 255, 255);
         display: flex;
         justify-content: space-around;
@@ -128,19 +128,21 @@
 .fa-solid{
     font-size: 4rem;
     cursor: pointer;
+    pointer-events: auto;
 }
 
-.test{
-    display:flex;
-    justify-content: center;
-    align-items: center;
+.disabled-arrow{
+    pointer-events: none;
+    opacity: .5;
 }
 
+//this holds the type of method that is active 
 .type{
     font-size: 4rem;
     text-align: center;
     color: rgb(0, 0, 0);
 }
+//user input box, the small squares within the method
 .small-item-square{
     display: inline-block;
     height: 4rem;
@@ -158,7 +160,7 @@
         transform: translate(-50%, -50%);
     }
 }
-
+//user inputbox, the small circles
 .small-item-circle{
     display: inline-block;
     height: 4rem;
@@ -169,16 +171,15 @@
     border: 3px inset;
 }
 
-.marked{
-    border: 2px inset rgb(188, 164, 164) !important;
-    background-color: rgb(96, 244, 255) !important;
-}
+//items that are outline to better visually understand what is going on
 .outline-marked{
     border: 4px inset rgb(96, 244, 255) !important;
 }
 .outline-marked-red{
     border: 4px inset rgb(255, 96, 96) !important;
 }
+
+//when a new array is created, the message displayed 
 .announcement{
     position: absolute;
     bottom: 20px;
@@ -188,7 +189,10 @@
 
 .output-result{
     font-size: 5.5rem;
+    // background-color: aqua;
 }
+
+
 
 .button-main-container{
     height: 20vh;

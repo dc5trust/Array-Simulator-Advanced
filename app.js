@@ -78,8 +78,15 @@ function execute(e){
 }
 
 function moveLeft(){
+    
     if(ArrayCounter === 0) return
     if(isSimulatorRunning === true) return
+    if(ArrayCounter === 1){
+        leftArrowBtn.classList.add('disabled-arrow');
+    }
+    if(ArrayCounter === methodsArray.length-1){
+        rightArrowBtn.classList.remove('disabled-arrow');
+    }
     //remove previous class
     runBtn.classList.remove(methodsArray[ArrayCounter].buttonClass);
     ArrayCounter--;
@@ -87,8 +94,15 @@ function moveLeft(){
 }
 
 function moveRight(){
-    if(methodsArray.length-1 === ArrayCounter) return
+    
+    if(ArrayCounter === methodsArray.length-2){
+        rightArrowBtn.classList.add('disabled-arrow');   
+    } 
     if(isSimulatorRunning === true) return 
+    if(ArrayCounter === 0){
+        leftArrowBtn.classList.remove('disabled-arrow');
+    }
+   
     //remove previous class
     runBtn.classList.remove(methodsArray[ArrayCounter].buttonClass);
     ArrayCounter++;
@@ -96,7 +110,6 @@ function moveRight(){
 }
 
 function switchMethods(){
-    //need to fix this here! need to prevent early animation cancels
     hasSimulatorRan = false;
     typeMethod.innerHTML = methodsArray[ArrayCounter].type;
     runBtn.classList.add(methodsArray[ArrayCounter].buttonClass)
@@ -184,7 +197,6 @@ function reset(){
             default:
                 break;
         }
-        console.log('hello');
         hasSimulatorRan = false;
     }
 }
