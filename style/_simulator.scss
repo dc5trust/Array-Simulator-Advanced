@@ -77,36 +77,22 @@
         justify-content: space-around;
         align-items: center;
     }
-    .box-1{
-        // background-color: rgb(151, 44, 181);
-    }
-    .box-2{
-        // background-color: rgb(213, 211, 211);
-    }
-    .box-3{
-        // background-color: rgb(181, 103, 44);
-    }
-    .box-4{
-        // background-color: rgb(44, 99, 181);
-    }
     .circle{
         border-radius: 50%;
-        
     }
 
 }
 
 .user-selection{
     height: 20vh;
-    // background-color: darkgreen;
 
     .user-container{
         height: 8.5rem;
-        background-color: rgb(255, 255, 255);
+        // background-color: rgb(255, 255, 255);
         display: flex;
         justify-content: space-around;
         align-items: center;
-        border: 4px inset;
+        // border: 4px inset;
         width: 60%;
         margin: auto;
     }
@@ -114,12 +100,11 @@
     .user-controls{
         height: 100%;
         width: 35rem;
-        // background-color: rgb(215, 215, 215);
         display: flex;
         justify-content: space-around;
         align-items: center;
         flex-direction: column;
-        // border: 4px outset;
+        // background-color: aliceblue;
     } 
 }
 
@@ -128,18 +113,23 @@
     cursor: pointer;
     pointer-events: auto;
     padding: .5rem;
+    color: white;
+    filter: drop-shadow(1px 1px 1px #020202);
 }
 
 .disabled-arrow{
     pointer-events: none;
-    opacity: .5;
+    opacity: .4;
+    
 }
 
 //this holds the type of method that is active 
 .type{
+    align-self: center;
     font-size: 4rem;
     text-align: center;
-    color: rgb(0, 0, 0);
+    color: rgb(255, 255, 255);
+    filter: drop-shadow(1px 1px 1px #020202);
 }
 //user input box, the small squares within the method
 .small-item-square{
@@ -151,7 +141,9 @@
     border: 3px inset;
     font-size: 2rem;
     text-align: center;
+    top: 10px;
     position: relative;
+    color: black;
     p{
         position: absolute;
         top: 50%;
@@ -165,9 +157,12 @@
     height: 4rem;
     width: 4rem;
     border-radius: 50%;
+    top: 10px;
+    text-align: center;
     background-color: rgb(213, 211, 211);
     box-shadow: 0 20px 30px rgba(0,0,0,.1), 0 4px 4px 0 rgba(0,0,0,.1);
     border: 3px inset;
+    position: relative;
 }
 
 //items that are outline to better visually understand what is going on

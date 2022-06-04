@@ -43,8 +43,6 @@
 
 .type{
     font-size: 3rem;
-    text-align: center;
-    color: rgb(0, 0, 0);
 }
 
     
@@ -102,8 +100,6 @@
     //this holds the type of method that is active 
 .type{
     font-size: 2.3rem;
-    text-align: center;
-    color: rgb(0, 0, 0);
 }
 
 //when a new array is created, the message displayed 
@@ -285,7 +281,7 @@
 
         .user-container{
             height: 6.5rem;
-            background-color: rgb(255, 255, 255);
+            // background-color: rgb(255, 255, 255);
             width: 90%;
         }
     }
