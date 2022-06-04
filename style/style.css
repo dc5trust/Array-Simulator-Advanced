@@ -334,7 +334,7 @@ button {
   }
 
   .arrays-container {
-    min-height: 47vh;
+    min-height: 45vh;
     flex-wrap: wrap;
   }
   .arrays-container .input-container, .arrays-container .output-container {
