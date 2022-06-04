@@ -120,15 +120,14 @@
         align-items: center;
         flex-direction: column;
         // border: 4px outset;
-    }
-
-    
+    } 
 }
 
 .fa-solid{
     font-size: 4rem;
     cursor: pointer;
     pointer-events: auto;
+    padding: .5rem;
 }
 
 .disabled-arrow{
