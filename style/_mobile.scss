@@ -230,6 +230,8 @@
         width: 90%;
     }
 }
+
+
 }
 
 
@@ -255,7 +257,7 @@
         }
 
         .input-container, .output-container{
-            height: 11.5rem;
+            height: 10.5rem;
         }
 
         .input-array{
@@ -301,6 +303,11 @@
         width: 90%;
     }
 }
+
+
+.fa-solid{
+    font-size: 3rem;
+}
 }
 
 @media only screen and (max-width: 375px){
@@ -321,7 +328,7 @@
         }
 
         .input-container, .output-container{
-            height: 9rem;
+            height: 8.5rem;
         }
     
         .output-array{
@@ -340,11 +347,12 @@
     }
 
     .announcement{
-        bottom: 5px;
+        bottom: 3px;
+        font-size: 1rem;
     }
 }
 
-@media only screen and (max-width: 310px){
+@media only screen and (max-width: 334px){
     .main-container{
         .title-container{
     
@@ -361,7 +369,7 @@
         }
 
         .input-container, .output-container{
-            height: 9rem;
+            height: 8rem;
         }
 
         .input-array{

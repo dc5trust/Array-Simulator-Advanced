@@ -23,7 +23,7 @@
         background-color: rgb(255, 255, 255);
         box-shadow: 0 20px 20px rgba(0,0,0,.1), 0 4px 4px 0 rgba(0,0,0,.1);
         border-radius: 5%;
-        border: 4px inset;
+        border: 3px double rgb(201, 201, 201);
     }
     
     .input-array{
@@ -88,11 +88,12 @@
 
     .user-container{
         height: 8.5rem;
-        // background-color: rgb(255, 255, 255);
+        background-color: rgb(255, 255, 255);
+        box-shadow: 0 20px 30px rgba(0,0,0,.1), 0 4px 4px 0 rgba(0,0,0,.1);
         display: flex;
         justify-content: space-around;
         align-items: center;
-        // border: 4px inset;
+        border: 3px double rgb(201, 201, 201);
         width: 60%;
         margin: auto;
     }
@@ -113,8 +114,9 @@
     cursor: pointer;
     pointer-events: auto;
     padding: .5rem;
-    color: white;
-    filter: drop-shadow(1px 1px 1px #020202);
+    // color: white;
+    color: rgb(0, 0, 0);
+    
 }
 
 .disabled-arrow{
@@ -128,8 +130,9 @@
     align-self: center;
     font-size: 4rem;
     text-align: center;
-    color: rgb(255, 255, 255);
-    filter: drop-shadow(1px 1px 1px #020202);
+    // color: rgb(255, 255, 255);
+    color: black;
+    // filter: drop-shadow(1px 1px 1px #020202);
 }
 //user input box, the small squares within the method
 .small-item-square{

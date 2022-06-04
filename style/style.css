@@ -6,6 +6,7 @@
 
 body {
   font-size: 62.5%;
+  font-family: "Roboto", sans-serif;
 }
 
 .main-container {
@@ -20,7 +21,7 @@ body {
 }
 .main-container .title-container .title {
   font-size: 5.5rem;
-  font-family: "Dancing Script", cursive;
+  font-family: "Dancing Script", cursive, sans-serif;
 }
 
 button {
@@ -59,7 +60,7 @@ button {
   background-color: rgb(255, 255, 255);
   box-shadow: 0 20px 20px rgba(0, 0, 0, 0.1), 0 4px 4px 0 rgba(0, 0, 0, 0.1);
   border-radius: 5%;
-  border: 4px inset;
+  border: 3px double rgb(201, 201, 201);
 }
 .arrays-container .input-array {
   height: 20rem;
@@ -115,9 +116,12 @@ button {
 }
 .user-selection .user-container {
   height: 8.5rem;
+  background-color: rgb(255, 255, 255);
+  box-shadow: 0 20px 30px rgba(0, 0, 0, 0.1), 0 4px 4px 0 rgba(0, 0, 0, 0.1);
   display: flex;
   justify-content: space-around;
   align-items: center;
+  border: 3px double rgb(201, 201, 201);
   width: 60%;
   margin: auto;
 }
@@ -135,8 +139,7 @@ button {
   cursor: pointer;
   pointer-events: auto;
   padding: 0.5rem;
-  color: white;
-  filter: drop-shadow(1px 1px 1px #020202);
+  color: rgb(0, 0, 0);
 }
 
 .disabled-arrow {
@@ -148,8 +151,7 @@ button {
   align-self: center;
   font-size: 4rem;
   text-align: center;
-  color: rgb(255, 255, 255);
-  filter: drop-shadow(1px 1px 1px #020202);
+  color: black;
 }
 
 .small-item-square {
@@ -395,7 +397,7 @@ button {
     font-size: 1.5rem;
   }
   .arrays-container .input-container, .arrays-container .output-container {
-    height: 11.5rem;
+    height: 10.5rem;
   }
   .arrays-container .input-array {
     width: 18.5rem;
@@ -429,6 +431,10 @@ button {
   .button-main-container .button-container {
     width: 90%;
   }
+
+  .fa-solid {
+    font-size: 3rem;
+  }
 }
 @media only screen and (max-width: 375px) {
   .main-container .title-container .title {
@@ -439,7 +445,7 @@ button {
     font-size: 1.3rem;
   }
   .arrays-container .input-container, .arrays-container .output-container {
-    height: 9rem;
+    height: 8.5rem;
   }
   .arrays-container .output-array {
     width: 18.5rem;
@@ -455,10 +461,11 @@ button {
   }
 
   .announcement {
-    bottom: 5px;
+    bottom: 3px;
+    font-size: 1rem;
   }
 }
-@media only screen and (max-width: 310px) {
+@media only screen and (max-width: 334px) {
   .main-container .title-container .title {
     font-size: 1.7rem;
   }
@@ -467,7 +474,7 @@ button {
     font-size: 1.3rem;
   }
   .arrays-container .input-container, .arrays-container .output-container {
-    height: 9rem;
+    height: 8rem;
   }
   .arrays-container .input-array {
     width: 14.5rem;
