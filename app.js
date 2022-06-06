@@ -1,8 +1,8 @@
 // buttons 
 const runBtn = document.querySelector('#run-btn');
 const resetBtn = document.querySelector('.reset-btn');
-const rightArrowBtn = document.querySelector('.fa-chevron-right');
-const leftArrowBtn = document.querySelector('.fa-chevron-left');
+const rightArrowBtn = document.querySelector('.fa-circle-chevron-right');
+const leftArrowBtn = document.querySelector('.fa-circle-chevron-left');
 
 //containers
 const outputArray = document.querySelector('.output-array');
