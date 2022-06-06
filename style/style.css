@@ -60,7 +60,7 @@ button {
   background-color: rgb(255, 255, 255);
   box-shadow: 0 20px 20px rgba(0, 0, 0, 0.1), 0 4px 4px 0 rgba(0, 0, 0, 0.1);
   border-radius: 5%;
-  border: 6px outset rgb(137, 137, 137);
+  border: 4px outset rgb(137, 137, 137);
 }
 .arrays-container .input-array {
   height: 20rem;
