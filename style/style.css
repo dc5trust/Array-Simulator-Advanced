@@ -59,7 +59,7 @@ button {
   flex-direction: column;
   background-color: rgb(255, 255, 255);
   box-shadow: 0 20px 20px rgba(0, 0, 0, 0.1), 0 4px 4px 0 rgba(0, 0, 0, 0.1);
-  border-radius: 5%;
+  border-radius: 15px;
   border: 4px double rgb(137, 137, 137);
 }
 .arrays-container .input-array {
@@ -129,7 +129,7 @@ button {
   justify-content: space-around;
   align-items: center;
   flex-direction: column;
-  border-radius: 5%;
+  border-radius: 15px;
   background-color: rgb(254, 254, 254);
   border: 4px double rgb(137, 137, 137);
 }
