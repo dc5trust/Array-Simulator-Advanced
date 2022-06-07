@@ -10,11 +10,11 @@ body {
 }
 
 .main-container {
-  height: 100vh;
+  min-height: 100vh;
   background-Color: rgb(159, 165, 185);
 }
 .main-container .title-container {
-  height: 15vh;
+  min-height: 15vh;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -38,11 +38,11 @@ button {
 }
 
 .simulator-container {
-  height: 85vh;
+  min-height: 85vh;
 }
 
 .arrays-container {
-  height: 45vh;
+  min-height: 45vh;
   display: flex;
   justify-content: space-around;
   align-items: center;
@@ -112,7 +112,7 @@ button {
 }
 
 .user-selection {
-  height: 20vh;
+  min-height: 20vh;
 }
 .user-selection .user-container {
   height: 8.5rem;
@@ -150,7 +150,7 @@ button {
 
 .type {
   align-self: center;
-  font-size: 4rem;
+  font-size: 3.8rem;
   text-align: center;
   color: black;
 }
@@ -234,6 +234,10 @@ button {
     height: 5.5rem;
     width: 5.5rem;
   }
+
+  .type {
+    font-size: 2.5rem;
+  }
 }
 @media only screen and (max-width: 1010px) {
   .arrays-container .input-array {
@@ -252,7 +256,7 @@ button {
   }
 
   .type {
-    font-size: 3rem;
+    font-size: 2.1rem;
   }
 }
 @media only screen and (max-width: 845px) {
@@ -293,7 +297,7 @@ button {
   }
 
   .type {
-    font-size: 2.3rem;
+    font-size: 1.6rem;
   }
 
   .announcement {
@@ -307,6 +311,7 @@ button {
   .main-container {
     height: 100vh;
   }
+
   .arrays-container {
     min-height: 45vh;
     flex-wrap: wrap;
@@ -331,7 +336,7 @@ button {
   }
 
   .type {
-    font-size: 2rem;
+    font-size: 1.5rem;
   }
 }
 @media only screen and (max-width: 585px) {
@@ -357,7 +362,7 @@ button {
     justify-content: space-between;
   }
   .user-selection .user-container {
-    width: 80%;
+    width: 90%;
   }
   .user-selection .user-controls {
     width: 15rem;
@@ -465,6 +470,10 @@ button {
     bottom: 3px;
     font-size: 1rem;
   }
+
+  .type {
+    font-size: 1.1rem;
+  }
 }
 @media only screen and (max-width: 334px) {
   .main-container .title-container .title {
@@ -512,7 +521,7 @@ button {
   }
 
   .type {
-    font-size: 1.2rem;
+    font-size: 1rem;
   }
 
   .announcement {
@@ -544,61 +553,5 @@ button {
   .arrays-container .ghost-item {
     height: 4.5rem;
     width: 4.5rem;
-  }
-}
-@media only screen and (min-width: 900px) and (min-height: 500px) and (max-height: 735px) {
-  .arrays-container .input-container, .arrays-container .output-container {
-    height: 15.5rem;
-  }
-  .arrays-container .input-array {
-    width: 25rem;
-  }
-  .arrays-container .output-array {
-    width: 25rem;
-  }
-  .arrays-container .item {
-    height: 4.5rem;
-    width: 4.5rem;
-  }
-  .arrays-container .ghost-item {
-    height: 4.5rem;
-    width: 4.5rem;
-  }
-
-  .button-main-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-}
-@media only screen and (min-width: 500px) and (min-height: 500px) and (max-height: 735px) {
-  .arrays-container .input-container, .arrays-container .output-container {
-    height: 9.5rem;
-  }
-  .arrays-container .input-array {
-    width: 25rem;
-  }
-  .arrays-container .output-array {
-    width: 25rem;
-  }
-  .arrays-container .item {
-    height: 4.5rem;
-    width: 4.5rem;
-  }
-  .arrays-container .ghost-item {
-    height: 4.5rem;
-    width: 4.5rem;
-  }
-
-  .button-main-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-
-  .user-selection .user-container {
-    height: 6rem;
-    background-color: rgb(255, 255, 255);
-    width: 90%;
   }
 }/*# sourceMappingURL=style.css.map */

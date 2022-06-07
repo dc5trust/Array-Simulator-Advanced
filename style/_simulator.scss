@@ -1,9 +1,9 @@
 .simulator-container{
-    height: 85vh;
+    min-height: 85vh;
 }
 
 .arrays-container{
-    height: 45vh;
+    min-height: 45vh;
     display: flex;
     justify-content: space-around;
     align-items: center;
@@ -83,7 +83,7 @@
 }
 
 .user-selection{
-    height: 20vh;
+    min-height: 20vh;
 
     .user-container{
         height: 8.5rem;
@@ -125,7 +125,7 @@
 //this holds the type of method that is active 
 .type{
     align-self: center;
-    font-size: 4rem;
+    font-size: 3.8rem;
     text-align: center;
     color: black;
 }
