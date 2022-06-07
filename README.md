@@ -1,6 +1,6 @@
-# Array-Simulator-Advanced
+# Array Simulator Sr.
 
-## Array Simulator Sr. was design for new developers in mind. The application includes 6 Array methods with visual interactions to help new developers retain the information. 
+## The application includes 6 Array methods with visual interactions to help new developers retain the information. 
 
 ## Link to Web Application 
 https://array-simulator-advanced.netlify.app
