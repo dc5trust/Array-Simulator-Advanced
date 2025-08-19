@@ -16,7 +16,7 @@ https://array-simulator-advanced.netlify.app
 
 ## Features 
 <ul>
-  <li>6 Methods (map, filter, findIndex, find, every, some</li>
+  <li>6 Methods (map, filter, findIndex, find, every, some)</li>
   <li>Includes fluid animations</li>
   <li>Provides visual cues to help retain information</li>
 </ul>
